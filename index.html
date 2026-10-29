@@ -24,7 +24,6 @@
   .top .name{font-size:15px;letter-spacing:4px;color:#E9DFCB;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .meta{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex:none;}
   .ep{font-size:10.5px;color:#AFA289;letter-spacing:1px;}
-  .rank{font-size:11px;color:var(--gold);border:1px solid #574935;padding:2px 8px;border-radius:2px;letter-spacing:1px;white-space:nowrap;}
 
   .hr{height:1px;background:#3A423B;margin:12px 0;}
   .prog{margin-bottom:16px;}
@@ -104,7 +103,7 @@
 <div class="wrap" id="wrap">
   <header class="top">
     <div class="brand"><span class="sealbox">嫡</span><span class="name">重生当嫡女</span></div>
-    <div class="meta"><span class="ep" id="ep">第 0 步</span><span class="rank" id="rank">身份：嫡女</span></div>
+    <div class="meta"><span class="ep" id="ep">第 0 步</span></div>
   </header>
   <div class="hr"></div>
   <div class="prog"><div class="bar"><i id="bar"></i></div><div class="dots" id="dots"></div></div>
@@ -113,8 +112,8 @@
     <div class="wm">嫡</div>
     <div class="seal">宅 斗 · 重 生</div>
     <h1>重生当嫡女</h1>
-    <div class="lead">深宅一梦，一念生死。<br>五十幕，幕幕皆局；<br>从及笄嫡女到掌家主母，每条路通向不同的命数。</div>
-    <div class="rulebox">📜 你重活一世，成了侯府嫡长女沈知微。故事分四卷：<b>重生归来 · 宅内暗涌 · 掌家之争 · 终局清算</b>。身份从嫡女一路走到掌家主母。每个选择都会<b>岔路</b>——有的通向不同结局，有的当场殒命。共 13 种结局。含「重新开局」与「从本卷重来」。</div>
+    <div class="lead">深宅一梦，一念生死。<br>五十幕，幕幕皆局；<br>从及笄嫡女到满堂烛火，每条路通向不同的命数。</div>
+    <div class="rulebox">📜 你重活一世，成了侯府嫡长女沈知微。故事分四卷：<b>重生归来 · 宅内暗涌 · 掌家之争 · 终局清算</b>。每个选择都会<b>岔路</b>——有的通向不同结局，有的当场殒命。共 13 种结局。含「重新开局」与「从本卷重来」。</div>
     <button class="start" id="startBtn">入 局</button>
   </section>
 
@@ -167,7 +166,7 @@ const NODES={
   o:[{t:"跪请父亲去问老大夫与守门婆子，人证俱在",go:"n9"},{t:"一味喊冤，说都是柳氏害的",end:"E_DU"},{t:"沉默不辩，等父亲自己查",end:"E_LAOYU"}]},
  n9:{v:1,where:"夜 · 母亲房中",story:"父亲半信半疑。母亲王氏却咳血了——上一世，她也是这时候病倒的。",
   o:[{t:"悄悄换掉母亲身边柳氏安插的丫鬟，换自己人煎药",go:"n10"},{t:"去求柳氏请太医",end:"E_DU"},{t:"寸步不离守在床边，自己煎药",end:"E_SHANG"}]},
- n10:{v:1,r:"掌事",where:"昼 · 中馈库房",story:"母亲病中，把中馈钥匙悄悄交给你——这是她最后的托付，也是柳氏最想要的东西。",
+ n10:{v:1,where:"昼 · 中馈库房",story:"母亲病中，把中馈钥匙悄悄交给你——这是她最后的托付，也是柳氏最想要的东西。",
   o:[{t:"悄悄收好钥匙，对外只说母亲病重",go:"n11"},{t:"立刻拿着钥匙去清点库房，立威",end:"E_LAOYU"},{t:"把钥匙交还给柳氏，息事宁人",end:"E_QINGDENG"}]},
  n11:{v:1,where:"夜 · 库房",story:"夜里你查账，发现中馈亏空巨大，账目被做得天衣无缝——是柳氏多年贪墨。",
   o:[{t:"不声张，暗抄一份真账，留证",go:"n12"},{t:"连夜拿账本去找父亲告状",end:"E_LAOYU"},{t:"直接拿去质问柳氏",end:"E_DU"}]},
@@ -197,7 +196,7 @@ const NODES={
   o:[{t:"只抄关键几页，原样放回，不留痕迹",go:"n23"},{t:"把整叠信都拿走",end:"E_LAOYU"},{t:"当场去父亲面前揭发",end:"E_DU"}]},
  n23:{v:2,where:"夜 · 花园",story:"知婉约你夜谈，屏退左右，忽然跪下来哭求你「成全」她和世子，说愿把嫡女之位让给你。",
   o:[{t:"扶起她，话说得滴水不漏，不留把柄",go:"n24"},{t:"心软答应让出婚事",end:"E_MAI"},{t:"冷嘲热讽，把话撕破",end:"E_HUIRONG"}]},
- n24:{v:2,r:"掌家",where:"昼 · 中馈厅",story:"你正式接手部分中馈。管事婆子们当面恭敬，背地里阳奉阴违——尤其柳氏的心腹张嬷嬷。",
+ n24:{v:2,where:"昼 · 中馈厅",story:"你正式接手部分中馈。管事婆子们当面恭敬，背地里阳奉阴违——尤其柳氏的心腹张嬷嬷。",
   o:[{t:"先按住张嬷嬷，当众立一条新规矩，赏罚分明",go:"n25"},{t:"立刻撤换所有柳氏的人",end:"E_LAOYU"},{t:"睁一只眼闭一只眼，怕得罪人",end:"E_QINGDENG"}]},
  n25:{v:2,where:"午 · 厨房",story:"母亲的药膳由张嬷嬷经手。今日你闻出药味不对——多了点不该有的苦杏仁味。",
   o:[{t:"悄悄留下药渣，换自己人重煎，暗查来源",go:"n26"},{t:"当场发作，揪住张嬷嬷",end:"E_DU"},{t:"让母亲先别喝，自己去查",end:"E_SHANG"}]},
@@ -233,7 +232,7 @@ const NODES={
   o:[{t:"依家法论处，不添不减，把罪证交族老",go:"n40"},{t:"求父亲从重，要她偿命",end:"E_ZHU"},{t:"替她求情，说她也是一时糊涂",end:"E_DU"}]},
  n40:{v:3,where:"夜 · 冷院",story:"柳氏被关进冷院，余党却未清。这一夜，你险些被一碗「赔罪汤」毒倒，幸被心腹拦下。",
   o:[{t:"将汤留证，顺线清掉余党",go:"n40b"},{t:"念她已落魄，把汤喝了",end:"E_DU"},{t:"宁可错杀，把经手的人全处置了",end:"E_LAOYU"}]},
- n40b:{v:3,r:"主母",where:"昼 · 中馈厅",story:"余党清尽，你再无明面上的对手。镜中那人，已不是当年被一支簪子逼到绝境的嫡女。",
+ n40b:{v:3,where:"昼 · 中馈厅",story:"余党清尽，你再无明面上的对手。镜中那人，已不是当年被一支簪子逼到绝境的嫡女。",
   o:[{t:"沉住气，先把侯府上下人心收拢",go:"n41"},{t:"大宴宾客，把这一仗的风光做足",end:"E_ZHU"},{t:"把当年欺你的人一一算账",end:"E_DU"}]},
 
  // ===== 卷四 终局清算（n41–n49）=====
@@ -249,7 +248,7 @@ const NODES={
   o:[{t:"证据在手，先一步递状，反告柳家谋产害命",go:"n46"},{t:"等着官府来拿人，清者自清",end:"E_LAOYU"},{t:"连夜带着母亲弟弟出逃",end:"E_MAI"}]},
  n46:{v:4,where:"夜 · 公堂",story:"公堂之上，柳家买通的官老爷偏袒，眼看要屈打成招。",
   o:[{t:"当堂呈上柳家买通官吏的实证，反将一军",go:"n47"},{t:"据理力争，指望青天大老爷",end:"E_LAOYU"},{t:"认罪，换母亲弟弟平安",end:"E_SHANG"}]},
- n47:{v:4,r:"诰命",where:"昼 · 侯府",story:"柳家倒了。父亲弥留之际，把侯府印信交到你手上，说「这个家，交给你了」。",
+ n47:{v:4,where:"昼 · 侯府",story:"柳家倒了。父亲弥留之际，把侯府印信交到你手上，说「这个家，交给你了」。",
   o:[{t:"接下印信，承诺护住母亲弟弟与侯府",go:"n48"},{t:"推辞，说自己撑不起",end:"E_ZHU"},{t:"当着父亲面发誓要柳家满门偿命",end:"E_DU"}]},
  n48:{v:4,where:"夜 · 后园",story:"尘埃将定，最后一道暗箭来了——柳氏余党买通了你的贴身丫鬟，在你今夜要饮的茶里下了东西。",
   o:[{t:"早有防备，换掉茶盏，将来人拿下",go:"n49"},{t:"毫无防备，忙了一天，一口饮下",end:"E_DU"},{t:"疑心太重，连心腹的茶也不喝，自己渴着",end:"E_SHANG"}]},
@@ -377,16 +376,16 @@ const DTH={
 "n49:4":"你独揽大权，触了众怒。一碗毒酒、三尺白绫，侯府给了你最后的体面。你倒在了第 __N__ 步。"
 };
 
-let step=0,prevV=0,volStart="n1",volStep=1,pending="",rank="嫡女";
+let step=0,prevV=0,volStart="n1",volStep=1,pending="";
 const $=id=>document.getElementById(id);
 const cover=$("cover"),chapter=$("chapter"),scene=$("scene"),end=$("end");
 const SAVE_KEY="zdsn_save_v1";
-function save(st){try{st.step=step;st.prevV=prevV;st.volStart=volStart;st.volStep=volStep;st.pending=pending;st.rank=rank;localStorage.setItem(SAVE_KEY,JSON.stringify(st));}catch(e){}}
+function save(st){try{st.step=step;st.prevV=prevV;st.volStart=volStart;st.volStep=volStep;st.pending=pending;localStorage.setItem(SAVE_KEY,JSON.stringify(st));}catch(e){}}
 function clearSave(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
 function restore(){let s=null;try{s=JSON.parse(localStorage.getItem(SAVE_KEY));}catch(e){}
   if(!s||s.screen==="cover")return;
-  step=s.step;prevV=s.prevV;volStart=s.volStart;volStep=s.volStep;pending=s.pending;rank=s.rank;
-  $("rank").textContent="身份："+rank;updateEp();renderDots();
+  step=s.step;prevV=s.prevV;volStart=s.volStart;volStep=s.volStep;pending=s.pending;
+  updateEp();renderDots();
   if(s.screen==="scene")paintScene(s.node);
   else if(s.screen==="chapter")showChapter(s.node);
   else if(s.screen==="end")showEnd(s.endId,s.key);}
@@ -403,8 +402,6 @@ function showChapter(id){const n=NODES[id];const v=VOLS[n.v];
   $("cVol").textContent=v[0];$("cTitle").textContent=v[1];$("cIntro").textContent=v[2];
   hide(scene);hide(end);show(chapter);renderDots();save({screen:"chapter",node:id});}
 function paintScene(id){const n=NODES[id];
-  if(n.r&&n.r!==rank){rank=n.r;toast("身 份 · "+rank);}
-  $("rank").textContent="身份："+rank;
   const v=VOLS[n.v];$("where").textContent=`${v[0]} · ${n.where}`;$("story").textContent=n.story;
   const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
   const box=$("opts");box.innerHTML="";shuf(n.o.map((op,i)=>({op,i}))).forEach(({op,i})=>{const b=document.createElement("button");b.className="opt";b.textContent=op.t;
@@ -417,9 +414,9 @@ function showEnd(id,key){const e=END[id];const txt=((key&&DTH[key])||e.text).rep
   $("endShare").textContent=e.type==="die"?`📌 你只活到了第 ${step} 步…截个图，看看朋友能走几步～`:`📌 你走到了第 ${step} 步，结局「${e.title}」～截个图炫耀！`;
   hide(scene);hide(chapter);show(end);window.scrollTo(0,0);save({screen:"end",endId:id,key:key});}
 
-$("startBtn").onclick=()=>{clearSave();step=0;prevV=0;volStart="n1";volStep=1;rank="嫡女";$("rank").textContent="身份：嫡女";hide(cover);go("n1");};
+$("startBtn").onclick=()=>{clearSave();step=0;prevV=0;volStart="n1";volStep=1;hide(cover);go("n1");};
 $("cGo").onclick=()=>{go(pending);};
-$("againBtn").onclick=()=>{clearSave();step=0;prevV=0;volStart="n1";volStep=1;rank="嫡女";$("rank").textContent="身份：嫡女";hide(end);hide(chapter);show(cover);};
+$("againBtn").onclick=()=>{clearSave();step=0;prevV=0;volStart="n1";volStep=1;hide(end);hide(chapter);show(cover);};
 $("rechBtn").onclick=()=>{step=volStep-1;go(volStart);};
 
 // 本地售卖版：无口令锁，直接进入
