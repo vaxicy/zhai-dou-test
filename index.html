@@ -399,19 +399,19 @@ function go(id){
 }
 function showChapter(id){const n=NODES[id];const v=VOLS[n.v];
   $("cVol").textContent=v[0];$("cTitle").textContent=v[1];$("cIntro").textContent=v[2];
-  hide(scene);hide(end);show(chapter);renderDots();save({screen:"chapter",node:id});}
+  hide(cover);hide(scene);hide(end);show(chapter);renderDots();save({screen:"chapter",node:id});}
 function paintScene(id){const n=NODES[id];
   const v=VOLS[n.v];$("where").textContent=`${v[0]} · ${n.where}`;$("story").textContent=n.story;
   const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
   const box=$("opts");box.innerHTML="";shuf(n.o.map((op,i)=>({op,i}))).forEach(({op,i})=>{const b=document.createElement("button");b.className="opt";b.textContent=op.t;
     b.onclick=()=>op.end?showEnd(op.end,id+":"+i):go(op.go);box.appendChild(b);});
-  hide(chapter);hide(end);show(scene);window.scrollTo(0,0);
+  hide(cover);hide(chapter);hide(end);show(scene);window.scrollTo(0,0);
   save({screen:"scene",node:id});}
 function showEnd(id,key){const e=END[id];const txt=((key&&DTH[key])||e.text).replace("__N__",step);
   end.className="end "+e.type;$("endTag").textContent=e.type==="die"?"大 结 局":"结 局";
   $("endBig").textContent=e.title;$("endReason").textContent=txt;
   $("endShare").textContent=e.type==="die"?`📌 你只活到了第 ${step} 步…截个图，看看朋友能走几步～`:`📌 你走到了第 ${step} 步，结局「${e.title}」～截个图炫耀！`;
-  hide(scene);hide(chapter);show(end);window.scrollTo(0,0);save({screen:"end",endId:id,key:key});}
+  hide(cover);hide(scene);hide(chapter);show(end);window.scrollTo(0,0);save({screen:"end",endId:id,key:key});}
 
 $("startBtn").onclick=()=>{clearSave();step=0;prevV=0;volStart="n1";volStep=1;hide(cover);go("n1");};
 $("cGo").onclick=()=>{go(pending);};
